@@ -35,7 +35,7 @@ struct rainfallstate {
 	int iteration;
 };
 
-// intermetiate functions
+// intermediate functions
 
 // generate_neighbors
 // parameters:

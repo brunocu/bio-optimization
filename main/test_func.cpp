@@ -26,3 +26,19 @@ void ackley(const alglib::real_1d_array &x, double &func, void *ptr)
 
 	func = term1 + term2 + a + exp(1);
 }
+
+void griewank(const alglib::real_1d_array &x, double &func, void *ptr)
+{
+	const int d = x.length();
+	double sum = 0;
+	double prod = 0;
+
+	for (auto i = 0; i < d; i++)
+	{
+		const auto xi = x[i];
+		sum = sum + (pow(xi, 2) / 4000.0);
+		prod = prod * cos(xi / sqrt(i + 1));
+	}
+
+	func = sum - prod + 1;
+}

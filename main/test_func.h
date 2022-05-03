@@ -14,4 +14,7 @@
 // Ackley Function
 void ackley(const alglib::real_1d_array &x, double &func, void *ptr);
 
+// Griewank Function
+void griewank(const alglib::real_1d_array &x, double &func, void *ptr);
+
 #endif // !TEST_FUNC_H
