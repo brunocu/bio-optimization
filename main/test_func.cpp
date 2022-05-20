@@ -8,16 +8,16 @@
 void ackley(const alglib::real_1d_array &x, double &func, void *ptr)
 {
 	const int d = x.length();
-	const double a = 20;
-	const double b = 0.2;
-	const double c = 2 * M_PI;
+	const double a = 20L;
+	const double b = 0.2L;
+	const double c = 2L * M_PI;
 
 	double sum1 = 0;
 	double sum2 = 0;
 	for (auto i = 0; i < d; i++)
 	{
 		const auto xi = x[i];
-		sum1 = sum1 + pow(xi, 2.0);
+		sum1 = sum1 + pow(xi, 2);
 		sum2 = sum2 + cos(c * xi);
 	}
 
@@ -36,7 +36,7 @@ void griewank(const alglib::real_1d_array &x, double &func, void *ptr)
 	for (auto i = 0; i < d; i++)
 	{
 		const auto xi = x[i];
-		sum = sum + (pow(xi, 2) / 4000.0);
+		sum = sum + (pow(xi, 2) / 4000.0L);
 		prod = prod * cos(xi / sqrt(i + 1));
 	}
 
@@ -51,10 +51,10 @@ void rastrigin(const alglib::real_1d_array &x, double &func, void *ptr)
 	{
 		const auto xi = x[i];
 		// sum = sum + (xi^2 - 10*cos(2*pi*xi))
-		sum = sum + (pow(xi, 2) - 10 * cos(2 * M_PI * xi));
+		sum = sum + (pow(xi, 2) - 10L * cos(2L * M_PI * xi));
 	}
 
-	func = 10 * d + sum;
+	func = 10L * d + sum;
 }
 
 void rothyp(const alglib::real_1d_array &x, double &func, void *ptr)
@@ -99,7 +99,7 @@ void dixonpr(const alglib::real_1d_array &x, double &func, void *ptr)
 		const auto xi = x[i];
 		const auto xold = x[i - 1];
 		// 	new = ii * (2*xi^2 - xold)^2;
-		const auto snew = i * pow((2 * pow(xi, 2) - xold), 2);
+		const auto snew = i * pow((2L * pow(xi, 2) - xold), 2);
 		sum = sum + snew;
 	}
 
@@ -139,12 +139,12 @@ void rosenbrock(const alglib::real_1d_array &x, double &func, void *ptr)
 {
 	const int d = x.length();
 	double sum = 0;
-	for (int i = 0; i < (d - 1); i++)
+	for (int i = 0; i < (d - 1L); i++)
 	{
 		const auto xi = x[i];
 		const auto xnext = x[i + 1];
-		// new = 100*(xnext-xi^2)^2 + (xi-1)^2;
-		const auto term = 100 * pow((xnext - pow(xi, 2)), 2) + pow((xi - 1), 2);
+		// new = 100*(xnext-xi^2)^2 + (xi-1L)^2;
+		const auto term = 100L * pow((xnext - pow(xi, 2)), 2) + pow((xi - 1), 2);
 		sum = sum + term;
 	}
 
@@ -159,19 +159,19 @@ void levy(const alglib::real_1d_array &x, double &func, void *ptr)
 
 	for (auto i = 0; i < d; i++)
 	{
-		w[i] = 1 + (x[i] - 1) / 4;
+		w[i] = 1L + (x[i] - 1) / 4L;
 	}
 	
 	// term1 = (sin(pi*w(1)))^2;
 	const double term1 = pow(sin(M_PI * w[0]), 2);
 	// term3 = (w(d)-1)^2 * (1+(sin(2*pi*w(d)))^2);
-	const double term3 = pow((w[d - 1] - 1), 2) * (1 + pow(sin(2 * M_PI * w[d - 1]), 2));
+	const double term3 = pow((w[d - 1] - 1), 2) * (1L + pow(sin(2L * M_PI * w[d - 1]), 2));
 	double sum = 0;
 	for (auto i = 0; i < (d - 1); i++)
 	{
 		const auto wi = w[i];
 		//  new = (wi-1)^2 * (1+10*(sin(pi*wi+1))^2);
-		const auto term = pow((w[i] - 1), 2) * (1 + 10 * pow(sin(M_PI * w[i] + 1), 2));
+		const auto term = pow((w[i] - 1), 2) * (1 + 10L * pow(sin(M_PI * w[i] + 1), 2));
 		sum = sum + term;
 	}
 
