@@ -1,11 +1,14 @@
 #include "ap.h"
 #include "rainfall.h"
 #include "test_func.h"
-#include <cstdio>
+#include <iostream>
 #include <time.h>
 #include <fstream>
 #include <iomanip>
 #include <limits>
+#ifdef _WIN32
+#include <Windows.h>
+#endif
 
 struct algo {
 	std::string name;
@@ -16,6 +19,12 @@ struct algo {
 
 int main()
 {
+#ifdef _WIN32
+	// Prevent system from going into sleep mode
+	std::cout << "DISABLING SLEEP MODE" << std::endl;
+	SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED | ES_AWAYMODE_REQUIRED);
+#endif // _WIN32
+
 	algo test[]{
 		{"Ackley", ackley, -32.768, 32.768},
 		{"Griewank", griewank, -600, 600},
@@ -63,4 +72,9 @@ int main()
 	}
 
 	fout.close();
+#ifdef _WIN32
+	// Allow system to sleep normally
+	SetThreadExecutionState(ES_CONTINUOUS);
+#endif // _WIN32
+
 }
