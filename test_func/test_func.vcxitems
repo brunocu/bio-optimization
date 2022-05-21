@@ -15,8 +15,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)test_func.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ThreadPool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)test_func.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ThreadPool.h" />
   </ItemGroup>
 </Project>
