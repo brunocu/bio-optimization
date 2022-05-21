@@ -10,13 +10,6 @@
 #include <Windows.h>
 #endif
 
-struct algo {
-	std::string name;
-	testFunc func;
-	double lower;
-	double upper;
-};
-
 int main()
 {
 #ifdef _WIN32
@@ -24,19 +17,6 @@ int main()
 	std::cout << "DISABLING SLEEP MODE" << std::endl;
 	SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED | ES_AWAYMODE_REQUIRED);
 #endif // _WIN32
-
-	algo test[]{
-		{"Ackley", ackley, -32.768, 32.768},
-		{"Griewank", griewank, -600, 600},
-		{"Rastrigin", rastrigin, -5.12, 5.12},
-		{"Rotated Hyper-Ellipsoid", rothyp, -65.536, 65.536},
-		{"Sphere", spheref, -5.12, 5.12},
-		{"Dixon-Price", dixonpr, -10, 10},
-		{"Sum Squares", sumsq, -10, 10},
-		{"Trid", trid, -200, 200},
-		{"Rosenbrock", rosenbrock, -5, 10},
-		{"Levy", levy, -10, 10},
-	};
 
 	// write to csv
 	std::ofstream fout("rainfall.csv");
@@ -54,7 +34,7 @@ int main()
 	const auto clk_ref = clock();
 	for (auto i = 0; i < 30; i++)
 	{
-		for (auto &funcStruct : test)
+		for (auto &funcStruct : funcCalls)
 		{
 			for (auto &n : d)
 			{

@@ -2,9 +2,7 @@
 #ifndef RANFALL_H
 #define RAINFALL_H
 #include "ap.h"
-
-// function pointer typedef
-typedef void (*testFunc)(const alglib::real_1d_array &x, double &func, void *ptr);
+#include "test_func.h"
 
 // Rain fall Optimization Algorithm
 // parameters:
