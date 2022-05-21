@@ -113,7 +113,7 @@ void sumsq(const alglib::real_1d_array &x, double &func, void *ptr)
 	for (auto i = 0; i < d; i++)
 	{
 		const auto xi = x[i];
-		sum = sum + i * pow(xi, 2);
+		sum = sum + (i + 1) * pow(xi, 2);
 	}
 
 	func = sum;

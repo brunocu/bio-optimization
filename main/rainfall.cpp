@@ -21,7 +21,7 @@ struct raindrop {
 };
 
 struct rainfallstate {
-	void(*func)(const alglib::real_1d_array &x, double &func, void *ptr);
+	testFunc func;
 	int n;
 	int npop;
 	int ne;
@@ -62,7 +62,7 @@ inline bool comp_fit(const raindrop &a, const raindrop &b)
 	return a.fitness < b.fitness;
 }
 
-void rainfalloptimize(int n, int npop, int ne, double bndl, double bndu, void(*func)(const alglib::real_1d_array &x, double &func, void *ptr), alglib::real_1d_array &x)
+void rainfalloptimize(int n, int npop, int ne, double bndl, double bndu, testFunc func, alglib::real_1d_array &x)
 {
 	int np = 20 * n;
 	double nr = (bndu - bndl) * 0.02;
@@ -70,7 +70,7 @@ void rainfalloptimize(int n, int npop, int ne, double bndl, double bndu, void(*f
 	rainfalloptimize(n, npop, ne, np, nr, eb, bndl, bndu, func, x);
 }
 
-void rainfalloptimize(int n, int npop, int ne, int np, double nr, int eb, double bndl, double bndu, void(*func)(const alglib::real_1d_array &x, double &func, void *ptr), alglib::real_1d_array &x)
+void rainfalloptimize(int n, int npop, int ne, int np, double nr, int eb, double bndl, double bndu, testFunc func, alglib::real_1d_array &x)
 {
 	// init algorithm state
 	rainfallstate state;
@@ -217,7 +217,7 @@ void generate_neighbors(int np, int ridx, rainfallstate &state)
 		{
 			double normalized_rnd = rand() / static_cast<double>(RAND_MAX);
 			// scale between [-u, u];
-			double rnd = ((2 * state.u) * normalized_rnd) - state.u;
+			double rnd = ((2) * normalized_rnd) - 1;
 			// scale to radius
 			rnd = (rnd * state.drops[ridx].nr) + state.drops[ridx].pos[k];
 			if (rnd < state.bndl)

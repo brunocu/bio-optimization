@@ -3,6 +3,9 @@
 #define RAINFALL_H
 #include "ap.h"
 
+// function pointer typedef
+typedef void (*testFunc)(const alglib::real_1d_array &x, double &func, void *ptr);
+
 // Rain fall Optimization Algorithm
 // parameters:
 //  n     - problem dimension
@@ -18,7 +21,7 @@
 //  nr    - neighborhood radius. default: (bndu - bndl) * 0.02
 //  eb    - explosion base. default: 10
 //
-void rainfalloptimize(int n, int npop, int ne, double bndl, double bndu, void (*func)(const alglib::real_1d_array &x, double &func, void *ptr), alglib::real_1d_array &x);
-void rainfalloptimize(int n, int npop, int ne, int np, double nr, int eb, double bndl, double bndu, void (*func)(const alglib::real_1d_array &x, double &func, void *ptr), alglib::real_1d_array &x);
+void rainfalloptimize(int n, int npop, int ne, double bndl, double bndu, testFunc func, alglib::real_1d_array &x);
+void rainfalloptimize(int n, int npop, int ne, int np, double nr, int eb, double bndl, double bndu, testFunc func, alglib::real_1d_array &x);
 
 #endif // !RANFALL_H
