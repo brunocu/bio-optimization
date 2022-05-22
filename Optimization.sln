@@ -9,9 +9,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rainfall", "rainfall\main.v
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_func", "test_func\test_func.vcxitems", "{C92EFBCC-DE49-4CA6-B830-C429491F73F9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "minblec", "minblec\minblec.vcxproj", "{84BAF095-2F46-4DBC-975F-583D8412360B}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		test_func\test_func.vcxitems*{5364f9ac-84f0-492f-ae53-0bda651c83ba}*SharedItemsImports = 4
+		test_func\test_func.vcxitems*{84baf095-2f46-4dbc-975f-583d8412360b}*SharedItemsImports = 4
 		test_func\test_func.vcxitems*{c92efbcc-de49-4ca6-b830-c429491f73f9}*SharedItemsImports = 9
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +40,14 @@ Global
 		{5364F9AC-84F0-492F-AE53-0BDA651C83BA}.Release|x64.Build.0 = Release|x64
 		{5364F9AC-84F0-492F-AE53-0BDA651C83BA}.Release|x86.ActiveCfg = Release|Win32
 		{5364F9AC-84F0-492F-AE53-0BDA651C83BA}.Release|x86.Build.0 = Release|Win32
+		{84BAF095-2F46-4DBC-975F-583D8412360B}.Debug|x64.ActiveCfg = Debug|x64
+		{84BAF095-2F46-4DBC-975F-583D8412360B}.Debug|x64.Build.0 = Debug|x64
+		{84BAF095-2F46-4DBC-975F-583D8412360B}.Debug|x86.ActiveCfg = Debug|Win32
+		{84BAF095-2F46-4DBC-975F-583D8412360B}.Debug|x86.Build.0 = Debug|Win32
+		{84BAF095-2F46-4DBC-975F-583D8412360B}.Release|x64.ActiveCfg = Release|x64
+		{84BAF095-2F46-4DBC-975F-583D8412360B}.Release|x64.Build.0 = Release|x64
+		{84BAF095-2F46-4DBC-975F-583D8412360B}.Release|x86.ActiveCfg = Release|Win32
+		{84BAF095-2F46-4DBC-975F-583D8412360B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
