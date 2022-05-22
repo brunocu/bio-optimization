@@ -18,7 +18,6 @@ int main()
 {
 #ifdef _WIN32
 	// Prevent system from going into sleep mode
-	std::cout << "DISABLING SLEEP MODE" << std::endl;
 	SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED | ES_AWAYMODE_REQUIRED);
 #endif // _WIN32
 
