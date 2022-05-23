@@ -64,7 +64,7 @@ void rothyp(const alglib::real_1d_array &x, double &func, void *ptr)
 	for (auto i = 0; i < d; i++)
 	{
 		double inner = 0;
-		for (auto j = 0; j < i; j++)
+		for (auto j = 0; j <= i; j++)
 		{
 			const auto xj = x[j];
 			inner = inner + pow(xj, 2);
